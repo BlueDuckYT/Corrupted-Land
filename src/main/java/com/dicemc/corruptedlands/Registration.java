@@ -97,7 +97,6 @@ public class Registration {
 	    	map.put(Blocks.MOSSY_COBBLESTONE, Registration.CORRUPTED_MOSSY_COBBLESTONE_BLOCK.get());
 	    	map.put(Blocks.LAVA, Registration.CORRUPTED_OBSIDIAN_BLOCK.get());
 	    	map.put(Blocks.OBSIDIAN, Registration.CORRUPTED_OBSIDIAN_BLOCK.get());
-	    	map.put(Blocks.CRYING_OBSIDIAN, Registration.CORRUPTED_OBSIDIAN_BLOCK.get());
 	    	map.put(Blocks.ICE, Registration.CORRUPTED_ICE_BLOCK.get());
 	    	map.put(Blocks.WATER, Registration.CORRUPTED_ICE_BLOCK.get());
 	    	map.put(Blocks.BLUE_ICE, Registration.CORRUPTED_ICE_BLOCK.get());

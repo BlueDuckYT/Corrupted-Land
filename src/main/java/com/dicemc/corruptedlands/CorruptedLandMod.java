@@ -8,7 +8,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.util.Loader;
 
-import com.jedijoe.ImmortuosCalyx.Infection.InfectionManagerCapability;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -64,7 +63,7 @@ public class CorruptedLandMod {
 		public static void onFleshExpire(ItemExpireEvent event) {
 			if (event.getEntityItem().getItem().isItemEqual(new ItemStack(Items.ROTTEN_FLESH)) && !event.getEntityItem().getItem().getOrCreateTag().getBoolean("playerthrown")) {
 				BlockPos pos = new BlockPos(event.getEntityItem().getPosX(), event.getEntityItem().getPosY()-1, event.getEntityItem().getPosZ());
-				Core.corruptLand(pos, event.getEntityItem().getServer().getWorld(event.getEntityItem().getEntityWorld().getDimensionKey()));
+				Core.corruptLand(pos, event.getEntityItem().getServer().getWorld(event.getEntityItem().getEntityWorld().getDimension().getType()));
 			}
 		}
 		
@@ -86,16 +85,7 @@ public class CorruptedLandMod {
 					PlayerEntity player = (PlayerEntity) event.getEntityLiving();
 					BlockState bs = event.getEntityLiving().getEntityWorld().getBlockState(event.getEntityLiving().getPosition().down());
 					if (!player.isCreative() && bs.getBlock() instanceof ICorrupted)
-						if (!installedCalyx && !player.isPotionActive(Effects.POISON)) player.addPotionEffect(new EffectInstance(Effects.POISON, 25, 0));
-						else {
-							player.getCapability(InfectionManagerCapability.INSTANCE, null).ifPresent(cap -> {
-								if (cap.getInfectionProgress() >= Config.CALYX_EFFECT_LEVEL.get()) {
-									player.addPotionEffect(new EffectInstance(Effects.INSTANT_HEALTH, 20, 0));}
-								else if (!player.isPotionActive(Effects.POISON)){
-									player.addPotionEffect(new EffectInstance(Effects.POISON, 25, 0));
-								}
-							});							
-						}
+						if (!player.isPotionActive(Effects.POISON)) player.addPotionEffect(new EffectInstance(Effects.POISON, 25, 0));
 				}
 				if (Config.DAMAGE_ANIMALS.get() && event.getEntityLiving() instanceof AnimalEntity) {
 					BlockState bs = event.getEntityLiving().getEntityWorld().getBlockState(event.getEntityLiving().getPosition().down());

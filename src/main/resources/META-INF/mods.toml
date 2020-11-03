@@ -1,5 +1,5 @@
 modLoader="javafml" #mandatory
-loaderVersion="[32,)" #mandatory
+loaderVersion="[31,)" #mandatory
 issueTrackerURL="https://github.com/caltinor" #optional
 displayURL="https://github.com/caltinor" #optional
 logoFile="" #optional
@@ -9,8 +9,8 @@ license="ARR License"
 
 [[mods]] #mandatory
 modId="dicemccl" #mandatory
-version="1.1d" #mandatory
-displayName="Corrupeted Lands" #mandatory
+version="1.0" #mandatory
+displayName="Corrupted Lands" #mandatory
 #updateJSONURL=""
 description='''
 A SpookyJam Mod.
@@ -19,12 +19,12 @@ A SpookyJam Mod.
 [[dependencies.enderthing]] #optional
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[32.0.1,)" #mandatory
+    versionRange="[31,)" #mandatory
     ordering="NONE"
     side="BOTH"
 [[dependencies.enderthing]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16,1.17)"
+    versionRange="[1.15,)"
     ordering="NONE"
     side="BOTH"

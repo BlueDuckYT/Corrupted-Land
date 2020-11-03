@@ -19,7 +19,7 @@ public class Config {
 		
 		SERVER_BUILDER.comment("Mod Settings").push("Server");
 		SPREAD_RATE = SERVER_BUILDER.comment("The rate at which corruption should spread.  Higher = slower spread")
-				.defineInRange("Spread_Rate", 0.0, 0, .99);
+				.defineInRange("Spread_Rate", 0.75, 0, .99);
 		HEAL_MOBS = SERVER_BUILDER.comment("Does corrupted land heal mobs")
 				.define("Heal_Mobs", true);
 		DAMAGE_ANIMALS = SERVER_BUILDER.comment("Does corrupted land damage animals")
